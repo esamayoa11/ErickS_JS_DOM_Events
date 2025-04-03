@@ -15,18 +15,24 @@ document.addEventListener("DOMContentLoaded", function() {
         directionE1.innerText = `The Key you pressed is ${e.code}`;
     });
 
-        // Button and click event listener    
-        document.getElementById("clickMe").addEventListener("click", function(){
-            this.innerText = "You clicked me!"
-        });
+    // Button and click event listener    
+    document.getElementById("clickMe").addEventListener("click", function(){
+        this.innerText = "You clicked me!"
+    });
 
-        // Function to generate random hex color
-        function getRandomColor() {
-            return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-        }
+    //Function to generate random hex color
+    function getRandomColor() {
+        return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    }
 
-        //Event Listener to change background color
-        document.getElementById("randomColorBtn").addEventListener("click", function() {
-            document.body.style.backgroundColor = getRandomColor();
-        });
-}); 
+    //Event Listener to change background color
+    document.getElementById("randomColorBtn").addEventListener("click", function() {
+        document.body.style.backgroundColor = getRandomColor();
+    });
+});
+
+//Function change button style and to toggle glow
+function changeBtnStyle() {
+    const btn = document.querySelector(".cool-btn");
+    btn.classList.toggle("glow");
+} 

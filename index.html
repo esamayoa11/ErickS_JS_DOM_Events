@@ -5,7 +5,24 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>JS Events and DOM</title>
- </head>
+ <style>
+    .cool-btn {
+      background: linear-gradient(45deg, #ff6b6b, #556270);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px; 
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .glow {
+        box-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+    }
+ </style>
+
+  </head>
  <body>
    <!-- For Key events -->
    <p id="direction"></p>
@@ -13,6 +30,7 @@
    <p id="onload"></p>
    <button id="clickMe">Click me for something to happen</button>
    <button id="randomColorBtn">Change background color</button>
+   <button class="cool-btn" onclick="changeBtnStyle()">Click me to change my style</button>
    <script src="script.js"></script>
  </body>
 </html>
