@@ -36,3 +36,8 @@ function changeBtnStyle() {
     const btn = document.querySelector(".cool-btn");
     btn.classList.toggle("glow");
 } 
+
+document.getElementById("darkModeBtn").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    this.innerText = document.body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+ });
