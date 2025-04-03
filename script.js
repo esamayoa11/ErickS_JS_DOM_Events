@@ -12,13 +12,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //Can be changed with Key press or key up depending on what you might need
     document.addEventListener("keydown", function(e) {
-        
-        //when a key is pressed, the element with the id of direction will show the message
         directionE1.innerText = `The Key you pressed is ${e.code}`;
+    });
 
+        // Button and click event listener    
         document.getElementById("clickMe").addEventListener("click", function(){
             this.innerText = "You clicked me!"
-        })
+        });
 
-    }); 
-});
+        // Function to generate random hex color
+        function getRandomColor() {
+            return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+
+        //Event Listener to change background color
+        document.getElementById("randomColorBtn").addEventListener("click", function() {
+            document.body.style.backgroundColor = getRandomColor();
+        });
+}); 
