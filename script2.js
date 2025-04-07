@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const initialBackgroundColor = "rgb(255, 255, 255)";
 
     // Get the element
     let onloadE1 = document.getElementById("onload");
@@ -34,15 +35,20 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.setAttribute("data-original-color", newColor); // Store for dark mode toggling
     });
 
+    // double-click fucntion to restore page to original 
+    randomColorBtn.addEventListener("dblclick", function() {
+        document.body.style.backgroundColor = initialBackgroundColor;
+        document.body.removeAttribute("data-original-color");
+    });
+
     // Function change button style and to toggle glow
     const coolBtn = document.querySelector(".cool-btn");
     coolBtn.addEventListener("click", function() {
         this.classList.toggle("glow");
     });
 
-    // Function to adjust brightness of color as needed
+    // Function to adjust brightness of color as needed and convert hex to RGB
     function adjustBrightness(color, amount) {
-        // convert hex format to RGB
         let rgb; 
         if (color.startsWith('#')) {
             rgb = hexToRgb(color);
@@ -63,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function() {
         return [r, g, b];
     } 
 
+    const originalBackgroundColor = window.getComputedStyle(document.body).backgroundColor;
+    document.body.setAttribute("data-original-color", originalBackgroundColor);
+
     // Toggle dark mode and adjust background color
     const darkModeBtn = document.getElementById("darkModeBtn");
     let isDarkMode = false;
@@ -76,8 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.body.style.backgroundColor = isDarkMode
             ? adjustBrightness(currentColor, -150) // Darken color
-            : adjustBrightness(currentColor, 150); // Lighten color
+            : originalColor; // Lighten color
 
-            darkModeBtn.innerText = isDarkMode ? "Light Color Mode" : "Dark Color Mode";
-    });
+            darkModeBtn.innerText = isDarkMode ? "Light Color Mode" : "Dark Color Mode";        
+    });    
 });
